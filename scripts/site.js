@@ -9,6 +9,9 @@
 (function() {
   'use strict';
 
+  var $ = require('jquery');
+  var bs = require('bootstrap');
+
   // Load all images via Squarespace's Responsive ImageLoader
   function loadAllImages() {
     var images = document.querySelectorAll('img[data-src]' );
