@@ -14,29 +14,9 @@
 <!-- item loop -->
 {.repeated section items}
 
-  <article id="post-{id}" class="blog-list-item {@|item-classes}" data-item-id="{id}">
-    <!-- main image (thumbnail) -->
-    {.main-image?}
-      <a href="{fullUrl}" class="main-image content-fill">
-        <img {@|image-meta} />
-      </a>
-    {.end}
-    <!-- post title -->
-    <h1 class="title" data-content-field="title">
-      {.passthrough?}
-        <a href="{sourceUrl}" target="_blank">{title}</a>
-      {.or}
-        <a href="{fullUrl}">{title}</a>
-      {.end}
-    </h1>
-    <!-- excerpt or body -->
-    {.if excerpt}
-      {excerpt}
-      <a class="link" href="{fullUrl}">Read More</a>
-    {.or}
-      {body}
-    {.end}
-  </article>
+  {@|apply blog-item.block}
+
+  {@|apply blog-list-item.block}
 
 {.or}
 

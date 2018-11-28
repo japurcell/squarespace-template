@@ -1,0 +1,24 @@
+<article id="post-{id}" class="blog-list-item {@|item-classes}" data-item-id="{id}">
+    
+    <!-- main image (thumbnail) -->
+    {.main-image?}
+      <a href="{fullUrl}" class="main-image content-fill">
+        <img {@|image-meta} />
+      </a>
+    {.end}
+
+    <!-- post title -->
+    <h1 class="title" data-content-field="title">
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-{id}">
+        {title}
+      </button>
+    </h1>
+
+    <!-- excerpt or body -->
+    {.if excerpt}
+      {excerpt}
+      <a class="link" href="{fullUrl}">Read More</a>
+    {.or}
+      {body}
+    {.end}
+</article>

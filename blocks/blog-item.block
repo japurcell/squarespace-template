@@ -1,0 +1,63 @@
+  <!-- Modal -->
+  <div class="modal fade" id="modal-{id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!--POST TILE-->
+          <h5 class="modal-title" data-content-field="title">
+            {title}
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <!--MAIN CONTENT-->
+          {body}
+
+          <!--AUTHOR AND DATE-->
+          <p class="meta">
+              <time datetime="{addedOn|date %F}">{addedOn|date %B %d, %Y}</time>
+              by <a href="{collection.fullUrl}?author={author.id}">{author.displayName}</a>
+          </p>
+
+          <!--BLOG INJECTION-->
+          {postItemInjectCode}
+
+          <!--CATEGORIES-->
+          {.repeated section categories}
+            <a class="category" href="{collection.fullUrl}?category={@|url-encode}">{@}</a>{.alternates with},
+          {.end}
+
+          <!--TAGS-->
+          {.repeated section tags}
+            <a class="tag" href="{collection.fullUrl}?tag={@|url-encode}">{@}</a>{.alternates with},
+          {.end}
+
+          <!--SHARE AND LIKE-->
+          {@|like-button}
+          {@|social-button}
+
+
+          <!--LOCATION-->
+          {.section location}
+            {.section addressTitle}
+              {addressTitle}
+              {addressLine1}
+              {addressLine2}
+              {addressCountry}
+            {.end}
+          {.end}
+
+          <!--COMMENTS-->
+          {@|comments}
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

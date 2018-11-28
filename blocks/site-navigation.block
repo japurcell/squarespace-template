@@ -1,23 +1,18 @@
-<nav class="site-navigation">
-  <ul class="site-navigation-list">
-    {.repeated section items}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Blog</a>
+  {.repeated section items}
 
-      <li class="site-navigation-item {.section active} active-link{.end}">
-
-        <!-- collection link -->
-        {.section collection}
-          <a href="{fullUrl}">{navigationTitle}</a>
-        {.end}
-
-        <!-- external link -->
-        {.section externalLink}
-          <a href="{url}"{.section newWindow} target="_blank"{.end}>
-            {title}
-          </a>
-        {.end}
-
-      </li>
-
+    <!-- collection link -->
+    {.section collection}
+      <a class="nav-link {.section active} active{.end}" href="{fullUrl}">{navigationTitle}</a>
     {.end}
-  </ul>
+
+    <!-- external link -->
+    {.section externalLink}
+      <a class="nav-link {.section active} active{.end}" href="{url}"{.section newWindow} target="_blank"{.end}>
+        {title}
+      </a>
+    {.end}
+
+  {.end}
 </nav>
