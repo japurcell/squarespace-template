@@ -11,19 +11,23 @@
   <p class="filtered-by">Filtered by Author: {author.displayName}</p>
 {.end}
 
-<!-- item loop -->
-{.repeated section items}
+<div class="container">
+  <div class="row">
+    <!-- item loop -->
+    {.repeated section items}
 
-  {@|apply blog-item.block}
+      {@|apply blog-item.block}
 
-  {@|apply blog-list-item.block}
+      {@|apply blog-list-item.block}
 
-{.or}
+    {.or}
 
-  <!-- no items means no blog posts -->
-  <p><em>No blog posts yet.</em></p>
+      <!-- no items means no blog posts -->
+      <p><em>No blog posts yet.</em></p>
 
-{.end}
+    {.end}
+  </div>
+</div>
 
 <!-- pagination -->
 {.if pagination}

@@ -1,24 +1,33 @@
-<article id="post-{id}" class="blog-list-item {@|item-classes}" data-item-id="{id}">
+
+<div id="post-{id}" class="card col-sm shadow m-1" data-item-id="{id}" style="width: 18rem;">
     
+  <div class="card-img-top">
     <!-- main image (thumbnail) -->
     {.main-image?}
       <a href="{fullUrl}" class="main-image content-fill">
         <img {@|image-meta} />
       </a>
     {.end}
+  </div>
 
+  <div class="card-body">
     <!-- post title -->
-    <h1 class="title" data-content-field="title">
-      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-{id}">
-        {title}
-      </button>
-    </h1>
+    <div class="card-title">
+      <h1 class="title" data-content-field="title">
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-{id}">
+          {title}
+        </button>
+      </h1>
+    </div>
 
     <!-- excerpt or body -->
-    {.if excerpt}
-      {excerpt}
-      <a class="link" href="{fullUrl}">Read More</a>
-    {.or}
-      {body}
-    {.end}
-</article>
+    <div class="card-text">
+      {.if excerpt}
+        {excerpt}
+        <a class="link" href="{fullUrl}">Read More</a>
+      {.or}
+        {body}
+      {.end}
+    </div>
+  </div>
+</div>
